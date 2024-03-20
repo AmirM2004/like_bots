@@ -116,13 +116,13 @@ async def private(client , m):  # ✔️
 
                 await add_token(token=text[0] , ID = text[1] , time = m.date)
 
-                await back_main_menu(m , "توکن با موفقیت اضافه شد ✅")
+                await back_main_menu(m , "The operation was successful ✅")
                 
             else :
-                await back_main_menu(m , "توکن در حال حاضر در دیتابیس وجود دارد ❌")
+                await back_main_menu(m , "Token already exists ❌")
 
         else :
-            await back_main_menu(m , "فرمت ارسالی مشکل دارد ❌")
+            await back_main_menu(m , "The submitted format is incorrect ❌")
 
     elif ID in admins and lm[ID] == "Delete Token ➖":  # ✔️
             
@@ -134,10 +134,10 @@ async def private(client , m):  # ✔️
         if  m.text in token_list :
 
             await del_token(token=m.text)
-            await back_main_menu(m , "توکن با موفقیت حذف شد ✅")
+            await back_main_menu(m , "The operation was successful ✅")
 
         else :
-            await back_main_menu(m , "توکن در حال حاضر در دیتابیس وجود ندارد ❌")
+            await back_main_menu(m , "The token does not currently exist ❌")
 
     elif ID in admins and lm[ID] == "start" and m.text == "On Robot 🌕":  # ✔️
 
@@ -145,10 +145,10 @@ async def private(client , m):  # ✔️
 
             bot_status = True
 
-            await back_main_menu(m , "ربات با موفقیت روشن شد ✅")
+            await back_main_menu(m , "The robot has successfully turned on ✅")
 
         else :
-            await back_main_menu(m , "ربات روشن است ❌")
+            await back_main_menu(m , "The bot is now on ❌")
  
     elif ID in admins and lm[ID] == "start" and m.text == "Off Robot 🌑":  # ✔️
 
@@ -156,10 +156,10 @@ async def private(client , m):  # ✔️
 
             bot_status = False
 
-            await back_main_menu(m , "ربات با موفقیت خاموش شد ✅")
+            await back_main_menu(m , "The robot has successfully turned off ✅")
 
         else :
-            await back_main_menu(m , "ربات خاموش است ❌")
+            await back_main_menu(m , "The bot is now off ❌")
  
     elif ID in admins and lm[ID] == "start" and m.text == "Status ⏳":  # ✔️
 
@@ -184,7 +184,7 @@ async def private(client , m):  # ✔️
     elif  ID in admins and lm[ID] == "start" and m.text == "Change Emoji 🤡" : # ✅
 
         lm[ID] = "Change Emoji 🤡"
-        await m.reply(f"ایموجی ثبت شده در حال حاضر {emoji} است اگر میخواهید آن را تغییر دهید فقط یک ایموجی بفرستید" , reply_markup = ReplyKeyboardMarkup ([["Back 🔙"]] , resize_keyboard=True ))
+        await m.reply(f"Send Your New emoji for reaction , Your emoji right now is {emoji}" , reply_markup = ReplyKeyboardMarkup ([["Back 🔙"]] , resize_keyboard=True ))
 
     elif  ID in admins and lm[ID] == "Change Emoji 🤡" :
 
@@ -192,10 +192,10 @@ async def private(client , m):  # ✔️
         if len(m.text) == 1 :
 
             emoji = m.text
-            await back_main_menu(m , f"ایموجی شما به {emoji} تغییر کرد")
+            await back_main_menu(m , f"Your emoji changed to {emoji}")
 
         else :
-            await back_main_menu(m , "فرمت ارسالی مشکل دارد ❌")
+            await back_main_menu(m , "The submitted format is incorrect ❌")
 
 async def back_main_menu(m , text=""):  # ✔️
 
