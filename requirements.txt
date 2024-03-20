@@ -1,0 +1,6 @@
+pyrogram
+Tgcrypto
+requests
+db-sqlite3
+collection
+urllib3==1.26.6
